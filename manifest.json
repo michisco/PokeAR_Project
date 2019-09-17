@@ -1,0 +1,20 @@
+{
+  "name": "PokéBusters AR Version",
+  "short_name": "PokéBusters",
+  "description": "Cattura i Pokémon di tipo Spettro in modalità AR",
+  "start_url": "https://iumproject.herokuapp.com/ARVersion-c634059f-198a-4820-ac21-8c05b1c9fd07.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#000000",
+  "theme_color": "#0f4a73",
+  "icons": [{
+      "src": "public/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "public/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }]
+}

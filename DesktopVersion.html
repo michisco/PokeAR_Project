@@ -1,0 +1,225 @@
+<html lang="en">
+<head>
+    <title>PokéBuster Desktop Version</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="public/css/loadingScreenDesk.css" />
+    <script type="text/javascript" src="public/js/AR/three.js"></script>
+    <script type="text/javascript" src="public/js/AR/inflate.min.js"></script>
+    <script type="text/javascript" src="public/js/AR/FBXLoader.js"></script>
+    <script type="text/javascript" src="public/js/AR/WebGL.js"></script>
+    <script type="text/javascript" src="public/js/DesktopScript.js"></script>
+    <script type="text/javascript" src="public/js/gameController.js"></script>
+    <script type="text/javascript" src="public/js/countdownScript.js"></script>
+    <script type="text/javascript" src="public/js/boxScript.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="videoCanvas.css" />-->
+    <link rel="stylesheet" type="text/css" href="public/css/style.css" />
+    <style>
+
+        body {
+            font-family: Monospace;
+            background-color: #000;
+            color: #fff;
+            margin: 0px;
+            overflow: hidden;
+        }
+        
+         .borderRadar{
+            position: fixed;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            z-index: 4;
+        }
+        
+        /*.boxRadar:before,
+        .boxRadar:after{
+            background: linear-gradient(253deg, #89ff00, #060c21, #00bcd4);
+        }*/
+
+        #info {
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            z-index: 100;
+            display: block;
+        }
+
+        .video {
+            width: 100%;
+            height: auto;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        #info a {
+            color: #046;
+            font-weight: bold;
+        }
+
+        .UICamera {
+            width: 500px;
+            height: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        /* Top left text */
+        .top-left {
+            position: absolute;
+            top: 8px;
+            left: 16px;
+        }
+
+        .backBtnCamera {
+            background-color: #4cff00;
+            border-radius: 50%;
+            height: 85px;
+            width: 85px;
+            padding: 0;
+            border: none;
+            position: absolute;
+            right: 50px;
+            top: 20px;
+        }
+
+            .backBtnCamera.animated {
+                animation: recharge 5s infinite cubic-bezier(.36, .11, .89, .32);
+                animation-iteration-count: 1;
+                -webkit-animation: recharge 5s infinite cubic-bezier(.36, .11, .89, .32);
+                -webkit-animation-iteration-count: 1; /* Safari 4.0 - 8.0 */
+            }
+
+        @keyframes recharge {
+            0%, 100% {
+                animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+            }
+
+            0% {
+                transform: scale(.09, .09);
+                background-color: #808080;
+            }
+
+            95% {
+                transform: scale(1.0, 1.0);
+                background-color: #4cff00;
+            }
+        }
+
+        .buttonCamera {
+            background: url(public/assets/camerabutton.png) no-repeat center center;
+            position: absolute;
+            height: 85px;
+            width: 85px;
+            padding: 0;
+            border: none;
+            right: 50px;
+            top: 20px;
+        }
+
+        .scoreText {
+            position: absolute;
+            z-index: 1;
+            left: 50px;
+            top: 20px;
+            width: 100px;
+            height: 20px;
+            font: 30px PokeDollarFont;
+        }
+
+        .containerCountdown {
+            position: absolute;
+            top: 7%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 1px;
+            background-color: #000;
+            border: 1px solid black;
+            font-family: sans-serif;
+            box-shadow: 0 0 5px 3px #999;
+        }
+
+        .canvas {
+            display: none;
+            position: fixed;
+            z-index: 3;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="loading-screen">
+        <div id="loader"></div>
+        <div class="text-alignCenter"><a class="digitalLoading" id="loadingText">0%</a></div>
+    </section>
+
+    <canvas id="finalResult" class="canvas" onclick="Restart()">
+    </canvas>
+
+    <div class="borderRadar" id="radar"></div>
+    
+    <div>
+        <canvas id="cameraLook" class="UICamera"></canvas>
+        <!-- UI score-->
+        <div class="scoreText" id="scoreGame">
+            0$
+        </div>
+        <!-- UI countdown -->
+        <table class="containerCountdown" id="timer" cellpadding="10" style="border-collapse: collapse; table-layout: fixed">
+            <tr class="info">
+                <td id="min"></td>
+                <td id="between">:</td>
+                <td id="sec"></td>
+            </tr>
+        </table>
+    </div>
+
+    <!--<canvas id="UIGame" class="UICamera"></canvas>-->
+
+    <a class="backBtnCamera" id="btnBack"></a>
+    <button class="buttonCamera"></button>
+
+    <script>
+        var isClicked = false;
+        var canvas = document.getElementById("cameraLook");
+        // resize the canvas to fill browser window dynamically
+        window.addEventListener('resize', resizeCanvas, false);
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+        }
+        resizeCanvas();
+
+        Init();
+        /*function shotBnt() {
+            if (!isClicked) {
+                isClicked = true;
+                var btn = document.getElementById("btnBack");
+                btn.classList.remove('animated');
+                //SnapshotHandler(entities); --> richiamo la funzione per la gestione dello spawn dei target
+                void btn.offsetWidth;
+                btn.classList.add("animated");
+                //attendo che l'animazione finisca dopodiché posso ripremere il bottone
+                setTimeout(function () { isClicked = false; }, 5000);
+            }
+        }*/
+    </script>
+
+</body>
+</html>

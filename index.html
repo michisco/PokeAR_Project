@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>PokéBusters - I ain't afraid of no ghost-type</title>
+    <link rel="stylesheet" type="text/css" href="public/css/homeStyle.css" />
+</head>
+<body class="back">
+    <audio id="player" autoplay loop>
+        <source src="public/ost/HomePokeBusters.wav" type="audio/mp3">
+    </audio> 
+    <div class="header-img" style="background-image: url('public/assets/backgroundWebsite.png');">
+            <div class="header-site" style="min-height: 728px; ">
+                <div class="div-header">
+                    <span class="span-center">
+                        <img src="public/assets/PokeBusterTitle.png" class="titleGame">
+                    </span>
+                </div>
+                <div class="div-slide">
+                    <span class="span-center">
+                        <img src="public/assets/scroll.png" class="slide">
+                    </span>
+                </div>
+            </div>
+    </div>
+    <div id="container">    
+        <img src="public/assets/pokeScroll.png" class="pokeball" id="poke">
+        <main class="main-center text-left">
+            <h1><a class="ghostSymbol">h</a> Sinossi <a class="ghostSymbol">v</a></h1>
+            <p>Ciao! Ti trovi nel mondo dei Pokémon! Mi chiamo Egon! Tutti mi conoscono per il mio lavoro sul campo del paranormale!</p>
+            <p>Questo mondo, come tu ben sai, oltre ad essere popolato da creature chiamate Pokémon ci sono specie che sono dei veri propri spettri.
+             Alcuni Pokémon di tipo Spettro possono diventare amici, altri sono dei semplici burloni, però ci sono esemplari che possono essere anche pericolosi.
+             In quanto a me... lo studio dei Pokémon di tipo Spettro serve proprio per evitare che ci siano casi in cui possono recare danno agli umani.</p>
+            <p>Io lavoro a capo di una divisione della Silph S.p.A e abbiamo creato assieme al mio team stacanovista un nuovo strumento per vedere queste invisibili creature:</p>
+             <p><b>la Spettrosonda 2.0!</b></p>
+            <p>Questo apparecchio ha le stesse funzioni della prima Spettrosonda, l'unica differenza è che essa è stata tramutata in una applicazione per smartphone.
+             Infatti, qualsiasi persona ora potrebbe scovare i Pokémon Spettro soltanto grazie alla fotocamera del proprio dispositivo.
+             Però ora abbiamo bisogno del tuo aiuto, essendo ancora una beta dobbiamo testare l'applicazione, inoltre visto che è la notte di Halloween si avrà una maggior manifestazione paranormale.</p>
+             <p><b>Quindi stai attento, mi raccomando!</b></p>
+             <p>Per ogni foto che scatterai ad un esemplare di Spettro verrai ricompensato, questo ci permetterà di analizzare al meglio l'applicazione!
+             Purtroppo sappiamo che l'app consuma molta batteria dello smartphone e quindi avrai poco meno di 3 minuti per fotografare tutti i Pokémon (se ci fosse un modo per aumentare di poco la durata della batteria!) che incontrerai!
+             Il tuo aiuto sarà prezioso per le nostre ricerche, per scaricare l'applicazione scannerizza il qr code qua sotto e inizia a fotografare tutti i Pokémon Spettro che vedi!
+             Buona fortuna!</p>
+        </main>
+        <br />
+        <br />
+        <br />
+        <main class="boxQR">
+            <br />
+            <img src="public/assets/frame.png" class="center">
+            <p style="text-align:center">Se non hai un dispositivo compatibile, puoi giocare con la versione desktop a questo <a href="DesktopVersion.html">link</a></p>
+        </main>
+    </div>
+
+    <script>
+        (function () {
+            var throttle = function (type, name, obj) {
+                var obj = obj || window;
+                var running = false;
+                var func = function () {
+                    if (running) { return; }
+                    running = true;
+                    requestAnimationFrame(function () {
+                        obj.dispatchEvent(new CustomEvent(name));
+                        running = false;
+                    });
+                };
+                obj.addEventListener(type, func);
+            };
+            throttle("scroll", "optimizedScroll");
+        })();
+
+        var p = document.getElementById("poke");
+        window.addEventListener("optimizedScroll", function () {
+            p.style.transform = "rotate(" + window.pageYOffset/7 + "deg)";
+        });
+    </script>
+</body>
+ 
+</html>
