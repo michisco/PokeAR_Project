@@ -1,0 +1,91 @@
+@font-face {
+    font-family: MyFont;
+    src:url(VCR_OSD_MONO_1.001.ttf);
+}
+
+@font-face {
+    font-family: PokeDollarFont;
+    src: url(Pokedollar.ttf);
+}
+
+html {
+    user-select: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+     overflow: hidden;
+}
+
+body {
+    user-select: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    font-family: Monospace;
+    background-color: #000;
+    color: #fff;
+    margin: 0px;
+    overflow: hidden;
+    cursor: pointer; /*IOS Mobile Issue */
+}
+
+.container{
+    position:absolute;
+    top:10%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    text-align: center;
+    padding: 1px;
+    background-color:#000;
+    border: 1px solid black;
+    font-family: sans-serif;
+    box-shadow: 0 0 5px 3px #999;
+}
+
+.info {
+    font-family: MyFont;
+    font-size: 60px;
+}
+
+#info {
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            z-index: 100;
+            display: block;
+        }
+
+            #info a {
+                color: #046;
+                font-weight: bold;
+            }
+
+ @media screen and (max-width: 420px) {
+            .info {
+                font-size: 30px;
+            }
+        }
+
+.dollarPoke {
+    font-family: PokeDollarFont;
+    font-size: 1.4rem;
+}
+
+*, *::after, *::before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* RESET CSS */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}

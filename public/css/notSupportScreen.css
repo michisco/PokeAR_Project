@@ -1,0 +1,54 @@
+#notsupport-screen {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+#image-not-support {
+    display: block;
+    position: absolute;
+    top: 48%;
+    width: 250px;
+    height: 249px;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    left: 50%;
+    content: url(../assets/notSupport.png);
+}
+
+.text-alignCenter {
+    display: block;
+    position: relative;
+    text-align: center;
+    color:#8a31c4;
+    top: 62%;
+}
+
+.message-not-support {
+    font-family: Open Sans;
+    font-size: 0.8rem;
+}
+
+@media screen and (max-width: 1025px) and (min-width: 421px) {    
+    #image-not-support {
+      width: 500px;
+      height: 495px;
+    }
+    
+    .message-not-support {
+      font-size: 1.5rem;
+    }
+    
+    .text-alignCenter {
+       top: 64%;
+    }
+}

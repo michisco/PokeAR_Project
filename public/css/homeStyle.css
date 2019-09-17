@@ -1,0 +1,258 @@
+@font-face {
+    font-family: ghostFont;
+    src: url(ghostbus.ttf);
+}
+
+@font-face {
+    font-family: fluffy;
+    src: url(fluffyghost.ttf);
+}
+
+@font-face {
+    font-family: Open Sans;
+    src: url(OpenSans-Regular.ttf);
+}
+
+html, body {
+    height: 100%;
+}
+
+body{
+    margin: 0;
+}
+
+.ghostSymbol {
+    font-family: fluffy;
+    font-size: 5rem;
+}
+
+.back {
+    background-color: #9DA5CD;
+}
+
+main {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 2rem;
+    background-color: #C1CAF1;
+    opacity: 0.85;
+    border-radius: 5px;
+    border-top: 10px solid #5C77F6;
+    border-bottom: 10px solid #5C77F6;
+    border-left: 1.5px groove;
+    border-right: 1.5px groove;
+    border-color: #1E90FF;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+
+.header-img {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.header-site {
+    height: 100%;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.main-center {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+}
+
+.span-center {
+    margin: 0 auto;
+    width: 100%;
+    display: block;
+    text-align: center;
+    z-index: 1;
+}
+
+.div-header {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    text-align: left;
+    padding-left: 15px;
+}
+
+.div-slide {
+    position: absolute;
+    right: 52%;
+    left: 48%;
+    bottom: 8%;
+    min-height: 1px;
+    padding-right: 15px;
+    text-align: center;
+    padding-left: 15px;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.boxQR {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 2rem;
+    background-color: #C1CAF1;
+    border-radius: 5px;
+    border-top: 10px solid #5C77F6;
+    border-bottom: 10px solid #5C77F6;
+    border-left: 1.5px groove;
+    border-right: 1.5px groove;
+    border-color: #1E90FF;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pokeball {
+    display: block;
+    position: fixed;
+    left: -15%;
+    top: 0px;
+    /* margin: -75px 0 0 -75px;*/
+    opacity: 0.3;
+    width: 850px;
+    height: 850px;
+    z-index: -1;
+}
+
+h1 {
+    text-align: center;
+    font-size: 5rem;
+    font-family: ghostFont; 
+    margin-top: 2rem;
+}
+
+p {
+    font-size: 1rem;
+    font-family: Open Sans;
+}
+
+.titleGame {
+    display: block;
+    position: center;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
+    margin-left: auto;
+    margin-right: auto;
+
+    /*animazione titolo*/
+    -webkit-animation: fadein 4s; 
+    -moz-animation: fadein 4s; 
+    -ms-animation: fadein 4s; 
+    -o-animation: fadein 4s; 
+    animation: fadein 4s;
+}
+
+.slide {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    /*animazione freccia*/
+    -webkit-animation: bounce 2s;
+    animation: bounce 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes bounce {
+    0%, 100% {
+        -webkit-transform: translateY(0);
+    }
+
+    50% {
+        -webkit-transform: translateY(-10px);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
