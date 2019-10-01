@@ -31,7 +31,8 @@ Hoopa è veramente raro da immortalare e può essere fotografato una sola volta.
 
 ## Dove giocare
 Per poter giocare a questo gioco potete provarlo su [questo sito](https://pokebustersproject.herokuapp.com/). Esso contiene entrambe le versioni.
-É consigliato giocare su Chrome oppure Firefox per una maggior qualità.
+É consigliato giocare su Chrome oppure Firefox per una maggior qualità e compabilità. 
+Su un sistema IOS potrebbe esserci problemi di incompatibilità, invece su Android non si è riscontrato nessun problema. 
 
 **N.B** Se su IOS il giroscopio non funziona bisogna controllare che i permessi siano stati attivati: 
         Settings > Safari > Enable the motion/orientation access setting 
