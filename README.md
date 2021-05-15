@@ -30,7 +30,7 @@ La versione cromatica (★) raddoppia il singolo punteggio del corrispettivo Pok
 Hoopa è veramente raro da immortalare e può essere fotografato una sola volta. Egli potrebbe apparire quando si raggiunge un punteggio molto alto.
 
 ## Dove giocare
-Per poter giocare a questo gioco potete provarlo su [questo sito](https://pokebustersproject.herokuapp.com/). Esso contiene entrambe le versioni.
+Per testare il gioco andate su [questo sito](https://pokebustersproject.herokuapp.com/). Esso contiene entrambe le versioni.
 É consigliato giocare su Chrome oppure Firefox per una maggior qualità e compabilità. 
 Su un sistema IOS potrebbe esserci problemi di incompatibilità, invece su Android non si è riscontrato nessun problema. 
 
